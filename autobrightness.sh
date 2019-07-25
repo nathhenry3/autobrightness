@@ -14,7 +14,7 @@ if b is manually adjusted
 	end script until 
 		next reboot/login
 
-COMMENT1
+Example hello world menu code:
 
            OPTIONS="Hello Quit"
            select opt in $OPTIONS; do
@@ -28,3 +28,7 @@ COMMENT1
                 echo bad option
                fi
            done
+
+COMMENT1
+
+
