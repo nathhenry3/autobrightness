@@ -10,25 +10,32 @@ if x time
 		Note: f(x) depends on sunset, sunrise, and is a linear piecewise function (triangular) - i.e. increasing 
 		until sun apex, then decreasing. May have higher gradient around sunset/sunrise. Divide b into discrete intervals
 		to match discrete brightness units provided to controller
+		
+if month = 6
+	sunrise = y
+	sunset = z
+if month = 12
+	sunrise = f
+	sunrise = g
+linear interpolation function between two months:
+	if 
 if b is manually adjusted
 	end script until 
 		next reboot/login
 
-Example hello world menu code:
-
-           OPTIONS="Hello Quit"
-           select opt in $OPTIONS; do
-               if [ "$opt" = "Quit" ]; then
-                echo done
-                exit
-               elif [ "$opt" = "Hello" ]; then
-                echo Hello World
-               else
-                clear
-                echo bad option
-               fi
-           done
+in /sys/class/backlight/intel_backlight - cat max_brightness gives 976. min = 0.
 
 COMMENT1
+
+
+
+date=$(date '+%T')
+echo $date
+
+#month=$date[
+
+brightness=$"900"
+#Final line: send brightness to intel_backlight
+echo "$brightness" > /sys/class/backlight/intel_backlight/brightness
 
 
