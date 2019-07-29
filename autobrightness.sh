@@ -39,7 +39,10 @@ sun_times=$( lynx --dump  https://weather.com/weather/today/l/$location | grep "
 
 # Extract sunrise and sunset times and convert to 24 hour format
 sunrise=$(date --date="`echo $sun_times | awk '{ print $1}'` AM" +%s)
-sunset=$(date --date="`echo $sun_times | awk '{ print $2}'` PM" +%s)
+sunset_actual=$(date --date="`echo $sun_times | awk '{ print $2}'` PM" +%s)
+
+# Create pseudo sunset time that is actually half an hour early so brightness dims faster
+sunset=$(($sunset_actual-1800))
 
 # Get current times
 date=$(date '+%T')
